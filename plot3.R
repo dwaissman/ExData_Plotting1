@@ -24,10 +24,10 @@ library(lubridate)
 datasubset$DTF<-dmy_hms(paste(datasubset$Date, datasubset$Time))
 
 # Creates graph
-plot(datasubset$DTF, datasubset$Sub_metering_1, col="black", type="l", ylab="Energy sub metering", xlab="", main="Plot 3")
+png(filename="plot3.png", bg="transparent", width=480, height=480)
+plot(datasubset$DTF, datasubset$Sub_metering_1, col="black", type="l", ylab="Energy sub metering", xlab="")
 lines(datasubset$DTF, datasubset$Sub_metering_2, col="red")
 lines(datasubset$DTF, datasubset$Sub_metering_3, col="blue")
 legend("topright", pch=("_"), col= c("black","blue","red"), legend=colnames(datasubset[7:9]))
-dev.copy(png,"plot3.png", width = 480, height = 480)
 dev.off()
 

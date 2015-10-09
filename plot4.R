@@ -24,6 +24,7 @@ library(lubridate)
 datasubset$DTF<-dmy_hms(paste(datasubset$Date, datasubset$Time))
 
 # Creates graphs
+png(filename="plot4.png", bg="transparent", width=480, height=480)
 par(mfcol=c(2,2))
 plot( datasubset$DTF,datasubset$Global_active_power, type="l", ylab="Global active power (kilowatts)", xlab="")
 
@@ -34,5 +35,4 @@ legend("topright", pch=("_"), col= c("black","blue","red"), legend=colnames(data
 
 plot( datasubset$DTF,datasubset$Voltage, type="l", ylab="Voltage", xlab="datetime")
 plot( datasubset$DTF,datasubset$Global_reactive_power, type="l", ylab= "Global_reactive_power", xlab="datetime")
-dev.copy(png,"plot4.png", width = 480, height = 480)
 dev.off()

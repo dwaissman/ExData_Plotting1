@@ -23,6 +23,6 @@ dataset$Date<-format(as.Date(dataset$Date,"%d/%m/%Y"))
 datasubset <- dataset[dataset$Date >= "2007-02-01" & dataset$Date <= "2007-02-02", ]
 
 # Creates histogram
+png(filename="plot1.png", bg="transparent", width=480, height=480)
 hist(datasubset$Global_active_power, main="Global Active Power", col="Red", xlab="Global Active Power (kilowatts)")
-dev.copy(png,"plot1.png", width = 480, height = 480)
 dev.off()
